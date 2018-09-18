@@ -1,5 +1,6 @@
 package com.example.michael.workingapplication;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -64,6 +65,17 @@ public class MainActivity extends AppCompatActivity {
                 } catch (NumberFormatException e) {
                     resultTextView.setText("How about typing some numbers?");
                 }
+            }
+        });
+
+        //new activity button
+        Button secondActivityBtn = (Button) findViewById(R.id.secondActivityBtn);
+        secondActivityBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //start intent to start new activity
+                Intent startIntent = new Intent(getApplicationContext(), SecondActivity.class);
+                startActivity(startIntent);
             }
         });
 
