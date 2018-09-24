@@ -35,9 +35,9 @@ public class MathActivity extends AppCompatActivity {
         signOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //signs user out and closes current activity
                 FirebaseAuth.getInstance().signOut();
-                Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(startIntent);
+                finish();
                 Toast.makeText(MathActivity.this, "Signed Out",
                         Toast.LENGTH_SHORT).show();
             }
@@ -102,7 +102,7 @@ public class MathActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //start intent to start new activity
-                Intent startIntent = new Intent(getApplicationContext(), SecondActivity.class);
+                Intent startIntent = new Intent(getApplicationContext(), DatabaseActivity.class);
                 startActivity(startIntent);
             }
         });
