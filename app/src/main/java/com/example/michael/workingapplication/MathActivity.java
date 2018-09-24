@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,11 +22,26 @@ public class MathActivity extends AppCompatActivity {
 
         //Get current user
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        //Display User on top right TextView field
         if (user != null){
             String userName = user.getEmail();
             TextView textViewUserName = findViewById(R.id.textViewUserName);
             textViewUserName.setText(userName);
         }
+
+        //Sign out button
+        Button signOutBtn = findViewById(R.id.btnSignOut);
+        signOutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(startIntent);
+                Toast.makeText(MathActivity.this, "Signed Out",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //declare add button and set listener
         Button addButton = (Button) findViewById(R.id.addButton);
