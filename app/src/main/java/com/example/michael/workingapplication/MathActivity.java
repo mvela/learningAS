@@ -30,18 +30,6 @@ public class MathActivity extends AppCompatActivity {
             textViewUserName.setText(userName);
         }
 
-        //Sign out button
-        Button signOutBtn = findViewById(R.id.btnSignOut);
-        signOutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //signs user out and closes current activity
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                Toast.makeText(MathActivity.this, "Signed Out",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
 
         //declare add button and set listener
         Button addButton = (Button) findViewById(R.id.addButton);
@@ -93,17 +81,6 @@ public class MathActivity extends AppCompatActivity {
                 } catch (NumberFormatException e) {
                     resultTextView.setText("How about typing some numbers?");
                 }
-            }
-        });
-
-        //new activity button
-        Button secondActivityBtn = (Button) findViewById(R.id.secondActivityBtn);
-        secondActivityBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //start intent to start new activity
-                Intent startIntent = new Intent(getApplicationContext(), DatabaseActivity.class);
-                startActivity(startIntent);
             }
         });
 

@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         //If already singed in start math activity
         if (mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(MainActivity.this, MathActivity.class));
+            startActivity(new Intent(MainActivity.this, DashboardActivity.class));
         }
 
         Button btnLogin = (Button) findViewById(R.id.btnLogin);
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            startActivity(new Intent(MainActivity.this, MathActivity.class));
+                            startActivity(new Intent(MainActivity.this, DashboardActivity.class));
                             //updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
